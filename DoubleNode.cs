@@ -17,8 +17,8 @@ public class DoubleNode
 
     public DoubleNode()
     {
-        next= null;
-        prev= null;
+        next = null;
+        prev = null;
     }
     public DoubleNode(int t_num)
     {
@@ -27,10 +27,10 @@ public class DoubleNode
         prev = null;
 
     }
-    public DoubleNode(int t_num, DoubleNode next)
+    public DoubleNode(int t_num, DoubleNode t_next)
     {
        num  = t_num;
-       next.next = next;
+       next = t_next;
        prev = null;
         
     }

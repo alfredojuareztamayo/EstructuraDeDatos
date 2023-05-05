@@ -2,62 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LinkedList: MonoBehaviour
+public class newNodos : MonoBehaviour
 {
-    DoubleNode head = new DoubleNode();
-
-   // DoubleNode tail = new DoubleNode();
-
-
-    public void Start()
+   DoubleNode head = new DoubleNode();
+    void Start()
     {
-        InsertHead(5);
-        InsertHead(6);
-        InsertHead(10);
-        InsertHead(7);
-     
-
-
-    }
-    public void Update()
-    {
-        movNodes();
+        InsertNods(3);
+        InsertNods(6);
+        InsertNods(10);
+      
     }
 
-    public void InsertHead(int num)
+    // Update is called once per frame
+    void Update()
     {
-        DoubleNode newNodo = new DoubleNode();
-        newNodo.num = num;
-        if (IsEmptyList())
+        if(Input.GetKeyUp(KeyCode.Escape))
         {
-            head = newNodo;
-            head.next = null;
-            Debug.Log("iNSERTE: " + num);
-
+            ShowNod();
         }
-        else
-        {
-            Debug.Log("Entre en el ese");
-            newNodo.next = head;
-            head.prev = newNodo;
-            head = newNodo;
-        }
-
     }
-
-
     bool IsEmptyList()
     {
         return head == null;
     }
 
-    public void movNodes()
+    public void InsertNods(int newNum)
+    {
+        DoubleNode newNodo = new DoubleNode(newNum);
+        if (IsEmptyList())
+        {
+            head = newNodo;
+            head.prev = null;
+            head.next = null;
+        }
+        else
+        {
+            newNodo.next = head;
+            head.prev= newNodo;
+            head = newNodo;
+
+
+        }
+    }
+    public void ShowNod()
     {
         DoubleNode tempNode = new DoubleNode();
         tempNode = head;
 
-        if (Input.GetKeyDown(KeyCode.D))
-        {
+        
 
             if (head != null)
             {
@@ -74,6 +66,5 @@ public class LinkedList: MonoBehaviour
 
         }
 
-    }
-
+    
 }
