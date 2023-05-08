@@ -5,7 +5,12 @@ using UnityEngine;
 public class managerNodos : MonoBehaviour
 {
     ListaNodo listita = new ListaNodo();
-   
+    [Header("Index para buscar por valor en los nodos")]
+    public int numIndex;
+    [Header("Index para buscar por index de nodo")]
+    public int searchIndex;
+    [Header("Index para buscar por index de nodo y destruirlo")]
+    public int searchIndexToDestroy;
     void Start()
     {
         
@@ -30,6 +35,22 @@ public class managerNodos : MonoBehaviour
         {
             Debug.Log("Lista del ultimo al primero");
             listita.DesplegarNodoLeft();
+        }
+        if(Input.GetKeyUp(KeyCode.F)) 
+        {
+            listita.FindNodo(numIndex);    
+        }
+        if (Input.GetKeyUp(KeyCode.G))
+        {
+            listita.FindNodo2(numIndex);
+        }
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            listita.FindNodoIndex(searchIndex);
+        }
+        if (Input.GetKeyUp(KeyCode.Q))
+        {
+            listita.FindNodoIndex(searchIndexToDestroy);
         }
     }
 }
