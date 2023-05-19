@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Board 
 {
+    Stack<Tile> Bombitas = new();
     const int boardRows = 10;
     const int boardColumns = 10;
     public Tile[,] tile { get; private set; } = new Tile[boardRows, boardColumns];
@@ -45,11 +46,12 @@ public class Board
             }
         }
 
+        AddToStack();
     }
 
     public void PrintArray()
     {
-        string printArray = "";
+        string printArray = " ";
         for (int i = 0; i < boardRows; i++)
         {
             for (int j = 0; j < boardColumns; j++)
@@ -69,4 +71,41 @@ public class Board
         Debug.Log(printArray);
     }
 
+    public void AddToStack()
+    {
+        for (int i = 0; i < boardRows; i++)
+        {
+            for (int j = 0; j < boardColumns; j++)
+            {
+                if (!tile[i, j].BomboN ) continue;
+                Checksurroundind(i, j);
+                
+            }
+        }
+    }
+    public void Checksurroundind(int i, int j)
+    {
+        for (int x = i-1; x <= i +1 ; x++)
+        {
+            for (int y = j-1; y <= j+1 ; y++)
+            {
+                if (x < 0) continue;
+                if(y < 0) continue;
+                if(x >= boardColumns) continue;
+                if(y >= boardRows) continue;
+                if (tile[x, y].BomboN) continue;
+                Bombitas.Push(tile[x, y]);
+                tile[x, y].Visible();
+            }
+        }
+        AddCounterBombs();
+    }
+    public void AddCounterBombs()
+    {
+        while(Bombitas.Count > 0)
+        {
+            Bombitas.Pop().AddBombsNear();
+
+        }     
+    }
 }

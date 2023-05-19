@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         superJuego.GenerateBoard();
+        
     }
 
     // Update is called once per frame
