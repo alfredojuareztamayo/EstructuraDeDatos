@@ -60,7 +60,7 @@ public class ListCicular
     {
         CircleNodo temp = new CircleNodo();
         temp = head;
-        bool findYouBitch = false;
+        bool findYou = false;
         if (temp != null)
         {
             do
@@ -68,11 +68,11 @@ public class ListCicular
                 if(temp.Dato == num)
                 {
                     Debug.Log("Nodo encontrado con valor: " +  temp.Dato);
-                    findYouBitch = true;
+                    findYou = true;
                 }
                 temp = temp.Next;
-            } while (temp != head && !findYouBitch);
-            if(!findYouBitch )
+            } while (temp != head && !findYou);
+            if(!findYou )
             {
                 Debug.Log("No existe ese nodo");
             }
@@ -87,7 +87,7 @@ public class ListCicular
     {
         CircleNodo temp = new CircleNodo();
         temp = head;
-        bool findYouBitch = false;
+        bool findYou = false;
         if (temp != null)
         {
             do
@@ -95,12 +95,12 @@ public class ListCicular
                 if (temp.Dato == num)
                 {
                     Debug.Log("Nodo encontrado con valor: " + temp.Dato);
-                    findYouBitch = true;
+                    findYou = true;
                     return temp;
                 }
                 temp = temp.Next;
-            } while (temp != head && !findYouBitch);
-            if (!findYouBitch)
+            } while (temp != head && !findYou);
+            if (!findYou)
             {
                 Debug.Log("No existe ese nodo");
                 return null;
@@ -118,7 +118,7 @@ public class ListCicular
     {
         CircleNodo temp = new CircleNodo();
         temp = head;
-        bool findYouBitch = false;
+        bool findYou = false;
         int contador = 0;
         if (temp != null)
         {
@@ -127,13 +127,13 @@ public class ListCicular
                 if (contador == num)
                 {
                     Debug.Log("Nodo encontrado con valor: " + temp.Dato);
-                    findYouBitch = true;
+                    findYou = true;
                     return temp;
                 }
                 contador++;
                 temp = temp.Next;
-            } while (temp != head && !findYouBitch);
-            if (!findYouBitch)
+            } while (temp != head && !findYou);
+            if (!findYou)
             {
                 Debug.Log("No existe ese nodo");
                 return null;
@@ -151,7 +151,7 @@ public class ListCicular
     {
         CircleNodo temp = new CircleNodo();
         temp = head;
-        bool findYouBitch = false;
+        bool findYou = false;
         int contador = 0;
         if (temp != null)
         {
@@ -161,14 +161,14 @@ public class ListCicular
                 {
                   
                    temp.Dato = newValue;
-                    findYouBitch = true;
+                    findYou = true;
                     Debug.Log("Nodo modificado con exito prro");
                     
                 }
                 contador++;
                 temp = temp.Next;
-            } while (temp != head && !findYouBitch);
-            if (!findYouBitch)
+            } while (temp != head && !findYou);
+            if (!findYou)
             {
                 Debug.Log("No existe ese nodo");
               
@@ -194,7 +194,7 @@ public class ListCicular
         temp = head;
         CircleNodo anterior = new CircleNodo();
         anterior = null;
-        bool findYouBitch = false;
+        bool findYou = false;
         int contador = 0;
         if (temp != null)
         {
@@ -220,14 +220,14 @@ public class ListCicular
                         anterior.Next = temp.Next;
                         temp.Next.Prev = anterior;
                     }
-                    findYouBitch = true;
+                    findYou = true;
                     
                 }
                 contador++;
                 anterior = temp;
                 temp = temp.Next;
-            } while (temp != head && !findYouBitch);
-            if (!findYouBitch)
+            } while (temp != head && !findYou);
+            if (!findYou)
             {
                 Debug.Log("No existe ese nodo");
                 
